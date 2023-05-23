@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 export const getStaticPaths = () => {
   return {
     paths: [],
@@ -15,7 +13,6 @@ export const getStaticProps = async ({
   const id = params.id;
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const json = await res.json();
-  console.log(json);
 
   return {
     props: {
@@ -25,14 +22,10 @@ export const getStaticProps = async ({
   };
 };
 
-export default function Home({ value }: { value: string }) {
+export default function Page({ value }: { value: string }) {
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-      </Head>
-      <div>getStaticPropsOnly</div>
-      <div>{value}</div>
+      <h1>{value}</h1>
     </>
   );
 }
