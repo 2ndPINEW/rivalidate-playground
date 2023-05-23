@@ -7,7 +7,11 @@ export const getStaticPaths = () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
   const id = params.id;
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const json = await res.json();
